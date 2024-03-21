@@ -15,7 +15,7 @@ public class ContaEspecial extends Conta {
     @Override
     public void debitarTarifaMensal(){
         if(getSaldo() < 10000){
-            sacar(30)
+            sacar(30);
         }
     }
 
