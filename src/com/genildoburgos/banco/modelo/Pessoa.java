@@ -1,3 +1,5 @@
+package com.genildoburgos.banco.modelo;
+
 public class Pessoa {
     private String nome;
     private String documento;
