@@ -1,5 +1,7 @@
 package com.genildoburgos.banco.modelo;
 
+import com.genildoburgos.banco.modelo.excecao.SaldoInsuficienteException;
+
 import java.util.Objects;
 
     public abstract class Conta {
@@ -29,7 +31,7 @@ import java.util.Objects;
 
         public void sacar(double valor){
             if (getSaldoDisponivel() - valor < 0){
-                throw new IllegalStateException("SALDO INSUFICIENTE");
+                throw new SaldoInsuficienteException("Saldo insuficiente");
             }
             saldo = saldo - valor;
         }
