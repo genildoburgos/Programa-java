@@ -2,6 +2,7 @@ package com.genildoburgos.banco.modelo;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Pessoa {
     private String nome;
@@ -22,6 +23,19 @@ public class Pessoa {
                 ", rendimentoAnual=" + rendimentoAnual +
                 ", tipo=" + tipo +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Pessoa pessoa = (Pessoa) o;
+        return Objects.equals(nome, pessoa.nome) && Objects.equals(documento, pessoa.documento) && Objects.equals(rendimentoAnual, pessoa.rendimentoAnual) && tipo == pessoa.tipo && Objects.equals(dataUltimaAtualizacao, pessoa.dataUltimaAtualizacao);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(documento);
     }
 
     public Pessoa(String nome, String documento) {
