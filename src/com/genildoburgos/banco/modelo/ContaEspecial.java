@@ -1,29 +1,29 @@
 package com.genildoburgos.banco.modelo;
 
+import java.math.BigDecimal;
+
 public class ContaEspecial extends Conta {
 
-    private double valorLimete;
+    private BigDecimal valorLimete;
 
-    public ContaEspecial(Pessoa titular, int agencia, int numero, double valorLimete) {
+    public ContaEspecial(Pessoa titular, int agencia, int numero, BigDecimal valorLimete) {
         super(titular, agencia, numero);
         this.valorLimete = valorLimete;
     }
 
-    public double getSaldoDisponivel(){
-        return getSaldo() + getValorLimete();
+    public BigDecimal getSaldoDisponivel(){
+        return getSaldo().add(getValorLimete());
     }
     @Override
     public void debitarTarifaMensal(){
-        if(getSaldo() < 10000){
-            sacar(30);
-        }
+        sacar(new BigDecimal(20));
     }
 
-    public double getValorLimete() {
+    public BigDecimal getValorLimete() {
         return valorLimete;
     }
 
-    public void setValorLimete(double valorLimete) {
+    public void setValorLimete(BigDecimal valorLimete) {
         this.valorLimete = valorLimete;
     }
 }

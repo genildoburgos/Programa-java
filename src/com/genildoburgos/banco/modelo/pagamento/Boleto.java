@@ -2,19 +2,21 @@ package com.genildoburgos.banco.modelo.pagamento;
 
 import com.genildoburgos.banco.modelo.Pessoa;
 
+import java.math.BigDecimal;
+
 public class Boleto implements  DocumentoPagavel, DocumentoEstornavel {
 
     private Pessoa beneficiario;
-    private final double valor;
+    private final BigDecimal valor;
     private boolean pago;
 
-    public Boleto(Pessoa beneficiario, double valor) {
+    public Boleto(Pessoa beneficiario, BigDecimal valor) {
         this.beneficiario = beneficiario;
         this.valor = valor;
     }
 
     @Override
-    public double getValorTotal() {
+    public BigDecimal getValorTotal() {
         return valor;
     }
 

@@ -1,5 +1,7 @@
 package com.genildoburgos.banco.modelo;
 
+import java.math.BigDecimal;
+
 public class ContaInvestimento extends Conta {
 
     public ContaInvestimento(Pessoa titular, int agencia, int numero){
@@ -8,11 +10,11 @@ public class ContaInvestimento extends Conta {
 
     @Override
     public void debitarTarifaMensal(){
-        sacar(20);
+        new BigDecimal(20);
     }
 
-    public void creditarRendimentos(double percentualJuros){
-        double valorRendimento = getSaldo() * percentualJuros / 100;
+    public void creditarRendimentos(BigDecimal percentualJuros){
+        BigDecimal valorRendimento = getSaldo().multiply(percentualJuros).divide(new BigDecimal( "100"), 2);
         depositar(valorRendimento);
     }
 
